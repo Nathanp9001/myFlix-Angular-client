@@ -15,12 +15,6 @@ export class UserRegistrationService {
   constructor(private http: HttpClient) {
   }
 
-  // Non-typed response extraction
-private extractResponseData(res: Response): any {
-  const body = res;
-  return body || { };
-}
-
  // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
@@ -168,6 +162,12 @@ deleteUser(): Observable<any> {
     catchError(this.handleError)
   );
 }
+
+  // Non-typed response extraction
+  private extractResponseData(res: Object): any {
+    const body = res;
+    return body || {};
+  }
 
 // Making the api call for deleting a movie from the favorite movies endpoint
 deleteFavoriteMovie(movieId: string): Observable<any> {
