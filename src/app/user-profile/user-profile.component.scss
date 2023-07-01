@@ -1,0 +1,15 @@
+.profile {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(27, 34, 74);
+  color: whitesmoke;
+  .form-input {
+    color: whitesmoke;
+    flex-direction: column;
+    margin: 10px;
+  }
+  .button {
+    background-color: rgb(239, 132, 39);
+    color: whitesmoke;
+  }
+}

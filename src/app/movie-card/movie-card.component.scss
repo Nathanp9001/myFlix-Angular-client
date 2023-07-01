@@ -1,9 +1,32 @@
 .movies {
-  background-color: rgb(27, 34, 74);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 img {
-  width: 400px
+  width: 400px;
+}
+
+.movie-card {
+  align-items: center;
+  height: 800px;
+  background-color: rgb(27, 34, 74);
+  border-width: 1px;
+  border-color: rgb(20, 25, 55);
+  border-radius: 0px;
+  .movie-title {
+    color: whitesmoke;
+    font-size: x-large;
+  }
+  .movie-director {
+    color: rgba(245, 245, 245, 0.843);
+    font-size: larger;
+  }
+  .favorite-icon {
+    color: rgb(249, 65, 111);
+  }
 }
 
 .fancy-button {

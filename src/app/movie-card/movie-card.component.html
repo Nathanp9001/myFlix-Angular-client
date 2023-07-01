@@ -1,9 +1,14 @@
 <app-nav-bar></app-nav-bar>
-<div class="movies" style="display: flex">
-  <mat-card *ngFor="let movie of movies" style="flex: 1 1 auto">
+<div class="movies">
+  <!-- <div class="movies" style="display: flex"> -->
+  <mat-card
+    *ngFor="let movie of movies"
+    style="flex: 1 1 auto"
+    class="movie-card"
+  >
     <mat-card-header>
-      <mat-card-title>{{ movie.Title }}</mat-card-title>
-      <mat-card-subtitle
+      <mat-card-title class="movie-title">{{ movie.Title }}</mat-card-title>
+      <mat-card-subtitle class="movie-director"
         >Directed by: {{ movie.Director.Name }}</mat-card-subtitle
       >
     </mat-card-header>
@@ -12,7 +17,7 @@
       <button class="fancy-button">Genre</button>
       <button class="fancy-button">Director</button>
       <button class="fancy-button">Synopsis</button>
-      <mat-icon>favorite_border</mat-icon>
+      <mat-icon class="favorite-icon">favorite_border</mat-icon>
     </mat-card-actions>
   </mat-card>
 </div>

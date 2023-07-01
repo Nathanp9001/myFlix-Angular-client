@@ -11,9 +11,9 @@ export class MovieInfoComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data: {
+    public movie: {
       title: string;
-      content: string;
+      summary: string;
     }
   ) { }
 

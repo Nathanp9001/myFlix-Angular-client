@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<div style="padding: 1rem">
+<div class="profile" style="padding: 1rem">
   <h1>Profile</h1>
   <p>Username: {{ user.Username }}</p>
   <p>Email: {{ user.Email }}</p>
@@ -15,7 +15,7 @@
 
   <h2>Update Profile</h2>
   <form>
-    <mat-form-field>
+    <mat-form-field class="form-input">
       <input
         matInput
         [(ngModel)]="userData.Password"
@@ -26,7 +26,7 @@
         required
       />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="form-input">
       <input
         matInput
         [(ngModel)]="userData.Email"
@@ -36,7 +36,7 @@
         required
       />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="form-input">
       <input
         matInput
         [(ngModel)]="userData.Birthday"
@@ -46,7 +46,7 @@
       />
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="editUser()" color="primary">Update</button>
+  <button mat-raised-button (click)="editUser()" class="button">Update</button>
 
   <button mat-button (click)="deleteUser()" color="warn">Delete Account</button>
 </div>
