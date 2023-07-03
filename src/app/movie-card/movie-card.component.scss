@@ -7,6 +7,7 @@
 
 img {
   width: 400px;
+  margin-top: 10px;
 }
 
 .movie-card {
@@ -19,16 +20,21 @@ img {
   border-radius: 0px;
   margin: 4px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  .movie-title {
-    color: whitesmoke;
-    font-size: x-large;
-  }
-  .movie-director {
-    color: rgba(245, 245, 245, 0.843);
-    font-size: larger;
-  }
-  .favorite-icon {
-    color: rgb(249, 65, 111);
+  .movie-card-header {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    .movie-title {
+      color: whitesmoke;
+      font-size: x-large;
+    }
+    .movie-director {
+      color: rgba(245, 245, 245, 0.843);
+      font-size: larger;
+    }
+    .favorite-icon {
+      color: rgb(249, 65, 111);
+    }
   }
 }
 

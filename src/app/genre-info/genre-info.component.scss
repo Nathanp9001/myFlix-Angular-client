@@ -1,0 +1,17 @@
+.info-dialog {
+  max-width: 700px;
+  background-color: rgb(27, 34, 74);
+  border-radius: 20px;
+  border-width: 2px;
+  border-color: rgb(252, 139, 41);
+  .info-title {
+    display: flex;
+    justify-content: center;
+    color: rgb(252, 139, 41);
+    font-size: x-large;
+  }
+  .info-content {
+    color: whitesmoke;
+    font-size: larger;
+  }
+}

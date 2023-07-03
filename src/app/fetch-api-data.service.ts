@@ -194,4 +194,9 @@ private handleError(error: HttpErrorResponse): any {
     return throwError(
     'Something bad happened; please try again later.');
   }
+
+  isFavoriteMovie(movieId: string): boolean {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    return user.FavoriteMovies.indexOf(movieId) >= 0;
+  }
 }
