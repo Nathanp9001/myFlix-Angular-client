@@ -24,7 +24,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { GenreInfoComponent } from './genre-info/genre-info.component';
 import { DirectorInfoComponent } from './director-info/director-info.component';
-import { MovieDescriptionComponent } from './movie-summary/movie-description.component';
+import { MovieDescriptionComponent } from './movie-description/movie-description.component';
 
 
 
