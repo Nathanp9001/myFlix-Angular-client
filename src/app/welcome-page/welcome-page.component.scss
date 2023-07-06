@@ -6,12 +6,14 @@
 }
 
 .welcome-menu {
-  position: center;
-  height: 30%;
-  width: 40%;
-  border-radius: 2px;
-  border-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  border-color: rgb(252, 139, 41);
 }
 
 .fancy-button {
