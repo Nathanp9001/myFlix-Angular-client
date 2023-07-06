@@ -38,3 +38,10 @@ $myFlix-Angular-client-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body { background-color: rgb(27, 34, 74);}
+
+.my-dialog {
+  mat-dialog-container{  
+    background-color: red;
+  border-radius: 5px;}
+
+}

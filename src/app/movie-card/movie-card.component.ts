@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class MovieCardComponent {
   movies: any[] = [];
+  user: any = null;
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -21,6 +22,7 @@ export class MovieCardComponent {
 
 ngOnInit(): void {
   this.getMovies();
+  this.getUser();
 }
 
 getMovies(): void {
@@ -31,9 +33,18 @@ getMovies(): void {
     });
   }
 
+  getUser(): void {
+    this.fetchApiData.getOneUser().subscribe((resp: any) => {
+        this.user = resp;
+        console.log(this.user);
+        return this.user;
+      });
+    }
+
   openGenreInfo(name: string, description: string): void {
     console.log(name);
     this.dialog.open(GenreInfoComponent, {
+      panelClass: 'my-dialog',
       data: {
         Name: name,
         Description: description,
@@ -76,7 +87,11 @@ getMovies(): void {
 
 
   isFavorite(id: string): boolean {
-    return this.fetchApiData.isFavoriteMovie(id);
+    // return this.fetchApiData.isFavoriteMovie(id);
+
+    return this.user?.FavoriteMovies.includes(id);
+
+    // return false;
   }
 
 

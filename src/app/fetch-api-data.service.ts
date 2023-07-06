@@ -87,7 +87,7 @@ getOneGenre(genreName: string): Observable<any> {
 
 // Making the api call for the get one user endpoint
 getOneUser(): Observable<any> {
-  const username = localStorage.getItem('username');
+  const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
   return this.http.get(apiUrl + 'users/' + username, {
     headers: new HttpHeaders(
@@ -118,7 +118,7 @@ getFavoriteMovies(): Observable<any> {
 
 // Making the api call for the add a movie to favourite Movies endpoint
 addFavoriteMovie(movieId: string): Observable<any> {
-  const username = localStorage.getItem('username');
+  const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
   return this.http.post(apiUrl + 'users/' + username + '/movies/' + movieId, {
     headers: new HttpHeaders(
@@ -195,8 +195,8 @@ private handleError(error: HttpErrorResponse): any {
     'Something bad happened; please try again later.');
   }
 
-  isFavoriteMovie(movieId: string): boolean {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    return user.FavoriteMovies.indexOf(movieId) >= 0;
-  }
+  // isFavoriteMovie(movieId: string): boolean {
+  //   const user = localStorage.getItem('user');
+  //   return user.FavoriteMovies.indexOf(movieId) >= 0;
+  // }
 }
