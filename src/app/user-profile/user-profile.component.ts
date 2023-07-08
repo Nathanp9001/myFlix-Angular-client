@@ -24,6 +24,8 @@ import { MatToolbar } from '@angular/material/toolbar';
 export class UserProfileComponent implements OnInit {
 
   user: any = {};
+  initialInput: any = {};
+  favorites: any = [];
   favoriteMovies: any[] = [];
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
