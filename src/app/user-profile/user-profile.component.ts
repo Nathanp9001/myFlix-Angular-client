@@ -41,30 +41,40 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUser(): void {
-    this.user = this.fetchApiData.getOneUser();
-    this.userData.Username = this.user.Username;
-    this.userData.Email = this.user.Email;
-    this.userData.Birthday = formatDate(this.user.Birthday, 'yyyy-MM-dd', 'en-US', 'UTC+0');
+    this.fetchApiData.getOneUser().subscribe((user: any) => {
+      console.log(user);
+      this.userData.Username = user.Username;
+      this.userData.Email = user.Email;
+      this.userData.Birthday = formatDate(
+        user.Birthday, 
+        'yyyy-MM-dd', 
+        'en-US', 
+        'UTC+0'
+        );
+        this.getUserFavorites(user.FavoriteMovies)
+    });
+  }
 
+  getUserFavorites(userFavorites: any[]): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-      this.favoriteMovies = resp.filter((m: { _id: any; }) => this.user.FavoriteMovies.indexOf(m._id) >= 0);
+      this.favoriteMovies = resp.filter(
+        (m: { _id: any}) => userFavorites.indexOf(m._id) >= 0
+      );
     });
   }
 
 
   editUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe((result) => {
-      localStorage.setItem('user', JSON.stringify(result));
-
-      this.snackBar.open('User successfully updated', 'OK', {
-        duration: 2000
+      console.log(result);
+      this.snackBar.open('User profile was successfuly updated', 'OK', {
+        duration: 4000,
       });
-    }, (result) => {
-      this.snackBar.open(result, 'OK', {
-        duration: 2000
-      });
+      localStorage.setItem('user', result.Username);
+      window.location.reload();
     });
   }
+  
 
 
   deleteUser(): void {

@@ -78,10 +78,10 @@ getMovies(): void {
 
   addFavorite(id: string): void {
     this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
-
       this.snackBar.open('Movie added to favorites.', 'OK', {
         duration: 2000
       });
+      this.ngOnInit();
     });
   }
 
@@ -100,6 +100,7 @@ getMovies(): void {
       this.snackBar.open('Movie removed from favorites.', 'OK', {
         duration: 2000
       });
+      this.ngOnInit();
     });
   }
 }

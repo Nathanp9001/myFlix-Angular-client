@@ -133,7 +133,7 @@ addFavoriteMovie(movieId: string): Observable<any> {
 
 // Making the api call for the edit user endpoint
 editUser(updatedUser: any): Observable<any> {
-  const username = localStorage.getItem('username');
+  const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
   return this.http.put(apiUrl + 'users/' + username, updatedUser, {
     headers: new HttpHeaders(
