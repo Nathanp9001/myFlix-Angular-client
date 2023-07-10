@@ -148,9 +148,9 @@ editUser(updatedUser: any): Observable<any> {
 
 // Making the api call for the delete user endpoint
 deleteUser(): Observable<any> {
-  const userid = localStorage.getItem('userid');
+  const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
-  return this.http.delete(apiUrl + 'users/' + userid, {
+  return this.http.delete(apiUrl + 'users/' + username, {
     headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
