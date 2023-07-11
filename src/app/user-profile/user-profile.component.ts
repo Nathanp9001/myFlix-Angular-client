@@ -84,9 +84,16 @@ export class UserProfileComponent implements OnInit {
       this.snackBar.open('User successfully deleted', 'OK', {
         duration: 2000
       });
+      localStorage.clear();
+      this.router.navigate(['/welcome']).then(() => {
+        window.location.reload();
+      });
     }, (result) => {
       this.snackBar.open(result, 'OK', {
         duration: 2000
+      });
+      this.router.navigate(['/welcome']).then(() => {
+        window.location.reload();
       });
     });
   }

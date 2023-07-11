@@ -1,9 +1,9 @@
 <mat-card class="login-dialog">
-  <mat-card-header class="login-title">
-    <mat-card-title>Login</mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="login-content">
-    <form>
+  <form (submit)="loginUser()">
+    <mat-card-header class="login-title">
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="login-content">
       <mat-form-field>
         <input
           matInput
@@ -24,10 +24,12 @@
           required
         />
       </mat-form-field>
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <button (click)="loginUser()" class="fancy-button">Login</button>
-    <mat-spinner></mat-spinner>
-  </mat-card-actions>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" class="fancy-button">
+        <span *ngIf="!uploading">Login</span>
+        <mat-spinner *ngIf="uploading" diameter="30"></mat-spinner>
+      </button>
+    </mat-card-actions>
+  </form>
 </mat-card>

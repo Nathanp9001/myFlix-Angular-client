@@ -19,6 +19,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UserLoginFormComponent implements OnInit {
 
   @Input() loginData = { Username: '', Password: '' };
+  uploading: boolean = false;
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -39,10 +40,12 @@ export class UserLoginFormComponent implements OnInit {
  */
   // This is the function responsible for sending the form inputs to the backend
   loginUser(): void {
+    this.uploading = true;
     this.fetchApiData.userLogin(this.loginData).subscribe((result) => {
       localStorage.setItem('user', (result.user.Username));
       localStorage.setItem('token', result.token);
       this.dialogRef.close(); // This will close the modal on success!
+      this.uploading = false;
       this.router.navigate(['movies']);
       this.snackBar.open('Logged in', 'OK', {
         duration: 2000
@@ -51,6 +54,7 @@ export class UserLoginFormComponent implements OnInit {
       this.snackBar.open(result, 'OK', {
         duration: 2000
       });
+      this.uploading = false;
     });
   }
 }
