@@ -10,8 +10,8 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 export class GenreInfoComponent implements OnInit {
   /**
    *
-   * @param fetchApiData to use functions to make API call
-   * @param data specific Genre data, received through @MAT_DIALOG_DATA from MovieCard
+   * @param fetchApiData makes call to api
+   * @param data data related to the selected genre
    */
   constructor(
     public fetchApiData: FetchApiDataService,

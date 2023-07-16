@@ -11,8 +11,6 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
 
 import { formatDate } from '@angular/common';
-import { MatList } from '@angular/material/list';
-import { MatToolbar } from '@angular/material/toolbar';
 
 
 @Component({
@@ -40,6 +38,9 @@ export class UserProfileComponent implements OnInit {
     this.getUser();
   }
 
+  /**
+   * gets the user's account info and favorite movies from the api
+   */
   getUser(): void {
     this.fetchApiData.getOneUser().subscribe((user: any) => {
       console.log(user);
@@ -63,7 +64,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-
+  /**
+   * edits the user's account info in the api
+   */
   editUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe((result) => {
       console.log(result);
@@ -76,7 +79,9 @@ export class UserProfileComponent implements OnInit {
   }
   
 
-
+  /**
+   * deletes the user's account and all info
+   */
   deleteUser(): void {
     this.fetchApiData.deleteUser().subscribe((result) => {
       localStorage.clear();

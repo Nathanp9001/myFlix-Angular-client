@@ -11,8 +11,8 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 export class DirectorInfoComponent implements OnInit {
   /**
    *
-   * @param fetchApiData to use functions to make API call
-   * @param data specific Director data, received through @MAT_DIALOG_DATA from MovieCard
+   * @param fetchApiData calls to the api
+   * @param data data for the selected director
    */
   constructor(
     public fetchApiData: FetchApiDataService,

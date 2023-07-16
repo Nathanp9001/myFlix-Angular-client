@@ -13,7 +13,11 @@ export class FetchApiDataService {
  // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) {}
 
- // Making the api call for the user registration endpoint
+ /**
+  * Making the api call for the user registration endpoint
+  * @param userDetails 
+  * @returns 
+  */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
@@ -21,7 +25,11 @@ export class FetchApiDataService {
     );
   }
 
-  // Making the api call for the user login endpoint
+  /**
+   * checks if the username and password are correct and gives user a token
+   * @param userDetails username and password
+   * @returns token and user info
+   */
 public userLogin(userDetails: any): Observable<any> {
   console.log(userDetails);
   return this.http.post(apiUrl + 'login', userDetails).pipe(
@@ -29,7 +37,10 @@ public userLogin(userDetails: any): Observable<any> {
   );
 }
 
-// Making the api call for the get all movies endpoint
+/**
+ * fetches all movies from the api
+ * @returns array of all movies
+ */
 getAllMovies(): Observable<any> {
   const token = localStorage.getItem('token');
   return this.http.get(apiUrl + 'movies', {
@@ -43,7 +54,11 @@ getAllMovies(): Observable<any> {
   );
 }
 
-// Making the api call for the get one movie endpoint
+/**
+ * fetches the info for one movie from the api
+ * @param title title of the movie 
+ * @returns movie info
+ */
 getOneMovie(title: string): Observable<any> {
   const token = localStorage.getItem('token');
   return this.http.get(apiUrl + 'movies/' + title, {
@@ -57,7 +72,11 @@ getOneMovie(title: string): Observable<any> {
   );
 }
 
-// Making the api call for the get one director endpoint
+/**
+ * fetches the info for one director from the api
+ * @param directorName name of the director
+ * @returns the director's info
+ */
 getOneDirector(directorName: string): Observable<any> {
   const token = localStorage.getItem('token');
   return this.http.get(apiUrl + 'movies/director/' + directorName, {
@@ -71,7 +90,11 @@ getOneDirector(directorName: string): Observable<any> {
   );
 }
 
-// Making the api call for the get one genre endpoint
+/**
+ * fetches the info for one genre from the api 
+ * @param genreName name of the genre
+ * @returns the genre's info
+ */
 getOneGenre(genreName: string): Observable<any> {
   const token = localStorage.getItem('token');
   return this.http.get(apiUrl + 'movies/genre/' + genreName, {
@@ -85,7 +108,10 @@ getOneGenre(genreName: string): Observable<any> {
   );
 }
 
-// Making the api call for the get one user endpoint
+/**
+ * fetches the info for one user from the api
+ * @returns user info
+ */
 getOneUser(): Observable<any> {
   const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
@@ -100,7 +126,10 @@ getOneUser(): Observable<any> {
   );
 }
 
-// Making the api call for the get favourite movies for a user endpoint
+/**
+ * fetches the user's favorite movie array 
+ * @returns user's array of favorite movies by id
+ */
 getFavoriteMovies(): Observable<any> {
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
@@ -116,7 +145,11 @@ getFavoriteMovies(): Observable<any> {
   );
 }
 
-// Making the api call for the add a movie to favourite Movies endpoint
+/**
+ * adds a movie to a user's favorite movie array by id
+ * @param movieId the movie id
+ * @returns 
+ */
 addFavoriteMovie(movieId: string): Observable<any> {
   const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
@@ -131,7 +164,11 @@ addFavoriteMovie(movieId: string): Observable<any> {
   );
 }
 
-// Making the api call for the edit user endpoint
+/**
+ * updates the info for a user by username
+ * @param updatedUser the new info for the user
+ * @returns 
+ */
 editUser(updatedUser: any): Observable<any> {
   const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
@@ -193,9 +230,4 @@ private handleError(error: HttpErrorResponse): any {
     return throwError(
     'Something bad happened; please try again later.');
   }
-
-  // isFavoriteMovie(movieId: string): boolean {
-  //   const user = localStorage.getItem('user');
-  //   return user.FavoriteMovies.indexOf(movieId) >= 0;
-  // }
 }

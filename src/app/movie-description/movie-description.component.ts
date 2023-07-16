@@ -9,6 +9,11 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 })
 export class MovieDescriptionComponent implements OnInit {
 
+  /**
+   * 
+   * @param fetchApiData calls to the api
+   * @param data data for the selected movie
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     @Inject(MAT_DIALOG_DATA)
