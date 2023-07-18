@@ -3,20 +3,24 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError, catchError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-//Declaring the api url that will provide data for the client app
+/** 
+*Declaring the api url that will provide data for the client app
+*/
 const apiUrl = 'https://myflixdb9001.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
 export class FetchApiDataService {
-  // Inject the HttpClient module to the constructor params
- // This will provide HttpClient to the entire class, making it available via this.http
+  /** 
+  * Inject the HttpClient module to the constructor params
+  * This will provide HttpClient to the entire class, making it available via this.http
+  */
   constructor(private http: HttpClient) {}
 
  /**
   * Making the api call for the user registration endpoint
-  * @param userDetails 
-  * @returns 
+  * @param userDetails object with the details of the user
+  * @returns an observable with the created user
   */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
@@ -27,7 +31,7 @@ export class FetchApiDataService {
 
   /**
    * checks if the username and password are correct and gives user a token
-   * @param userDetails username and password
+   * @param userDetails object with the user's username and password
    * @returns token and user info
    */
 public userLogin(userDetails: any): Observable<any> {
@@ -146,9 +150,9 @@ getFavoriteMovies(): Observable<any> {
 }
 
 /**
- * adds a movie to a user's favorite movie array by id
+ * adds a movie to a user's favorite movie array by movie id
  * @param movieId the movie id
- * @returns 
+ * @returns user object
  */
 addFavoriteMovie(movieId: string): Observable<any> {
   const username = localStorage.getItem('user');
@@ -167,7 +171,7 @@ addFavoriteMovie(movieId: string): Observable<any> {
 /**
  * updates the info for a user by username
  * @param updatedUser the new info for the user
- * @returns 
+ * @returns user object
  */
 editUser(updatedUser: any): Observable<any> {
   const username = localStorage.getItem('user');
@@ -183,7 +187,10 @@ editUser(updatedUser: any): Observable<any> {
   );
 }
 
-// Making the api call for the delete user endpoint
+/**
+ * deletes all info for a user by username
+ * @returns 
+ */
 deleteUser(): Observable<any> {
   const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
@@ -204,7 +211,11 @@ deleteUser(): Observable<any> {
     return body || {};
   }
 
-// Making the api call for deleting a movie from the favorite movies endpoint
+/**
+ * deletes a movie from the user's favorite movie array by movie id
+ * @param movieId the movie's id
+ * @returns user object
+ */
 deleteFavoriteMovie(movieId: string): Observable<any> {
   const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');

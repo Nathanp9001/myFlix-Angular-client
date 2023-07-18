@@ -26,7 +26,7 @@ ngOnInit(): void {
 }
 
 /**
- * fetch all movies from the api
+ * fetches all movies from the api
  */
 getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -37,7 +37,7 @@ getMovies(): void {
   }
 
   /**
-   * fetch the user's info from the api
+   * fetches the user's info from the api
    */
   getUser(): void {
     this.fetchApiData.getOneUser().subscribe((resp: any) => {
